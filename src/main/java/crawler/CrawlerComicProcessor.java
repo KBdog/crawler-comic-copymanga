@@ -28,10 +28,12 @@ public class CrawlerComicProcessor implements PageProcessor {
             if(urlList!=null){
                 mangaList=new ArrayList<>();
                 for(ComicUrl comicUrl:urlList){
+                    //某些章节名带特殊符号的转义
+                    String chapterName=chapter.getChapterName().replaceAll("\\.","");
                     //漫画名___章节名___章节图片url___章节图片页码
                     //防止出现通配符?
                     String url=RunProperties.comic.getComicName().replaceAll("\\?","？")+"___"+
-                            chapter.getChapterName().replaceAll("\\?","？")+"___"+
+                            chapterName.replaceAll("\\?","？")+"___"+
                             comicUrl.getUrlAddress()+"___"+comicUrl.getUrlId();
                     mangaList.add(url);
                 }
