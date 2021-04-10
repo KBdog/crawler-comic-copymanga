@@ -32,7 +32,7 @@ public class CrawlerComicProcessor implements PageProcessor {
                     String comicName=RunProperties.comic.getComicName().replaceAll("\\[","【");
                     comicName=comicName.replaceAll("\\]","】");
                     //某些章节名带特殊符号的转义
-                    String chapterName=chapter.getChapterName().replaceAll("\\.","");
+                    String chapterName=chapter.getChapterName().replaceAll("\\.\\.\\.","");
                     //漫画名___章节名___章节图片url___章节图片页码
                     //防止出现通配符?
                     String url=comicName.replaceAll("\\?","？")+"___"+
