@@ -33,7 +33,11 @@ public class CrawlerComicPipeline implements Pipeline {
         System.out.println("-当前章节名:"+s[1]);
         System.out.println("--当前漫画页数:"+size);
         //开放多个线程进行并发下载
+        //建立线程池
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(threadsize);
+        // CompletionService对线程池返回值进行监控为线程池中Task的执行结果服务的，
+        // 即为Executor中Task返回Future而服务的。CompletionService的实现目标是任务先完成可优先获取到，
+        // 即结果按照完成先后顺序排序。
         CompletionService<String> cs = new ExecutorCompletionService<String>(fixedThreadPool);
         for (String url : imgList) {
             final String url1 = url;
