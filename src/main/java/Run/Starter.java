@@ -41,6 +41,15 @@ public class Starter {
             System.out.println("关键字长度:"+keyword.length());
             comicList=RunProperties.parser.getComicList(keyword, RunProperties.proxy);
         }
+        //如果为空则重试十次
+        if(comicList==null){
+            for(int i=0;i<10;i++){
+                comicList=RunProperties.parser.getComicList(keyword, RunProperties.proxy);
+                if(comicList!=null){
+                    break;
+                }
+            }
+        }
         System.out.println("---------------------------------------");
         if(comicList!=null){
             int i=1;
