@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class RunProperties {
     public static Spider spider=null;
-    public static String crawlerDirectory="D:/copymanga/";
+    public static String crawlerDirectory="D:/Comic/copymanga/";
     public static Comic comic=null;
     public static List<ComicChapter>chapterList=null;
     public static int flag=0;
